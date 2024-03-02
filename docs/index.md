@@ -1,45 +1,10 @@
-[![Releases](https://img.shields.io/pypi/v/st-paywall)](https://pypi.org/project/st-paywall/)
-
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://subscription.streamlit.app)
-
-Author: [@tylerjrichards](https://twitter.com/tylerjrichards)
-
-Kind consultant: [@blackary](https://github.com/blackary)
-
-## Installation
-
-```sh
-pip install st-paywall
-```
-
-## See it in action
-
-Basic example: https://subscription.streamlit.app
-
-<p>&nbsp;</p>
-
-# 🥟 st-paywall
-
-<strong>A python package for creating paywalled Streamlit apps! </strong>
-
-## Why st-paywall?
+# Home
 
 I made st-paywall so data scientists and LLM developers can create small businesses around their Streamlit apps. Every week I see dozens of new incredible apps built in Streamlit that are adored by users, but eventually shut down or moved off of Streamlit as authentication and payment integration are too hard. This is my attempt at a dead-simple API around each, abstracting the both away into a single function (`add_auth`). Enjoy!
 
-## Documentation
+## Overview
 
-Once you configure the authentication and subscription on `st.secrets`, you can use the the library methods to conditionally render the content of the page:
-
-```python
-from st_paywall import add_auth
-
-add_auth(required=True)
-
-#after authentication, the email and subscription status is stored in session state
-st.write(st.session_state.email)
-st.write(st.session_state.user_subscribed)
-```
-
+This package gives you one basic function (`add_auth`) that adds subscription functionality to your Streamlit apps. `add_auth` will add both a Google login button if they are not logged in, and a Stripe (or Buy Me A Coffee) subscription button to your sidebar if they are not subscribed. If they are subscribed, `st.session_state.user_subscribed` will be true, and if they are logged in, `st.session_state.email` will have their email. `st.session_state.subscriptions` will have the info about their subscription(s).
 If the `required` parameter is `True`, the app will stop with `st.stop()` if the user is not logged in and subscribed. Otherwise, you the developer will have control over exactly how you want to paywall the apps!
 
 I hope you use this to create tons of value, and capture some of it with the magic of Streamlit.
@@ -61,9 +26,6 @@ bmac_api_key = "ey..." #only needed if using buy me a coffee
 bmac_link = "https://www.buymeacoffee.com/..." #only needed if using buy me a coffee
 ```
 
-The full documentation for the usage of the library can be found at https://st-paywall.readthedocs.io/.
+## Navigation
 
-
-### Feedback:
-
-If you have feedback about this package, please reach out to me on [twitter](https://twitter.com/tylerjrichards) or file an issue in [this repo](https://github.com/tylerjrichards/st-paywall/issues) and I will do my best to help you out.
+Use the top navigation bar to access the other pages within the documentation.
